@@ -2,13 +2,14 @@ package com.onurc.issuemanagement.api;
 
 import com.onurc.issuemanagement.DTO.ProjectDto;
 import com.onurc.issuemanagement.service.impl.ProjectServiceImpl;
+import com.onurc.issuemanagement.util.ApiPaths;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/project")
+@RequestMapping(ApiPaths.ProjectCtrl.CTRL)
 public class ProjectController {
 
     private final ProjectServiceImpl projectServiceImpl;

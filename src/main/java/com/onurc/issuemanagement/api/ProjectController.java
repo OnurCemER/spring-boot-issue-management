@@ -24,7 +24,7 @@ public class ProjectController {
     @GetMapping("/{id}")
     @ApiOperation(value = "Get By Id Operation", response = ProjectDto.class)
     public ResponseEntity<ProjectDto> getById(@PathVariable(value = "id", required = true) Long id) {
-        ProjectDto projectDto = projectServiceImpl.getById(1L);
+        ProjectDto projectDto = projectServiceImpl.getById(id);
         return ResponseEntity.ok(projectDto);
     }
 

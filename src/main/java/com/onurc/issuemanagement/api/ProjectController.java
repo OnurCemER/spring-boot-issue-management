@@ -3,9 +3,11 @@ package com.onurc.issuemanagement.api;
 import com.onurc.issuemanagement.DTO.ProjectDto;
 import com.onurc.issuemanagement.service.impl.ProjectServiceImpl;
 import com.onurc.issuemanagement.util.ApiPaths;
+import com.onurc.issuemanagement.util.TPage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +32,13 @@ public class ProjectController {
         log.debug("ProjectController -> GetByID -> PARAM:"+id);
         ProjectDto projectDto = projectServiceImpl.getById(id);
         return ResponseEntity.ok(projectDto);
+    }
+
+    @GetMapping("/pagination")
+    @ApiOperation(value = "Get By Pagination Operation", response = ProjectDto.class)
+    public ResponseEntity<TPage<ProjectDto>> getAllByPagination(Pageable pageable) {
+        TPage<ProjectDto> data = projectServiceImpl.getAllPageable(pageable);
+        return ResponseEntity.ok(data);
     }
 
     @PostMapping

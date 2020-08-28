@@ -2,6 +2,7 @@ package com.onurc.issuemanagement.service;
 
 import com.onurc.issuemanagement.DTO.ProjectDto;
 import com.onurc.issuemanagement.entity.Project;
+import com.onurc.issuemanagement.util.TPage;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -17,7 +18,7 @@ public interface ProjectService {
 
     List<Project> getByProjectCodeContains(String projectCode);
 
-    Page<Project> getAllPageable(Pageable pageable);
+    TPage<ProjectDto> getAllPageable(Pageable pageable);
 
     Boolean delete(Project project);
 
